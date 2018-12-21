@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css" href="admin-style.css">
+
+</head>
+<body>
+
+	<div id="admin">
+		<div id="header">
+			<p id="p1">Admin Panel</p> <img src="questioner-pix/admin2.png" id="pix">
+			<p id="p2">Proceed with Caution</p>
+		</div>
+
+		<div id="sidebar">
+		<center> <button onclick="change()" >Create Meetup</button></center><br>
+
+		<center> <button  >Delete Meetup</button></center><br>
+
+		<center> <button  >Show Available Meetups</button></center>
+		</div>
+
+		<div id="textarea"><br>
+			<p> 
+			<form>
+				<fieldset id="area">
+						<label>Topic: </label> <br>
+						<textarea></textarea>
+						<pre></pre>
+						<label>Date: </label><br>
+						<input type="Date" name="Date">
+						<pre></pre>
+						<label>Venue: </label> <br>
+						<input type="Venue" name="Venue"><pre></pre>
+						<input type="submit" name="submit" value="Create">
+				</fieldset>
+
+			</form>
+		</p>
+		</div>
+	</div>
+
+</body>
+<script src="admin.js"> </script>
+</html>
