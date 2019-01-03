@@ -1,6 +1,5 @@
 const endResponse = (responseObject, statusCode, data) => responseObject
-  .status(responseObject)
-  .end([data]);
+  .status(statusCode).send([data]);
 
 
 module.exports = {

@@ -1,40 +1,39 @@
-class Questions {
-  constructor() {
-    this.questionModel = null;
+
+class Meetup {
+  constructor(meetupModel) {
+    this.meetupModel = meetupModel;
   }
 
-  getQuestions() {
+  getMeetups(isUpcoming = false) {
+    console.log(isUpcoming);
+    this.meetups = ['meetup one', 'meetup two', 'meetup three'];
+    return this.meetups;
+  }
+
+  getMeetup(meetupId) {
     this.meetups = ['meetup one'];
-    return {
-      upvotes: 2,
-    };
+    return this.meetups;
   }
 
-  getQuestion(questionId) {
-    this.questionModel = ['meetup one'];
-    return [
-      {
-        upvotes: 2,
-      }
-    ];
-  }
-
-  createQuestion(questionData) {
+  createMeetup(meetupData) {
+    this.meetups = ['meetup one', 'meetup two', 'meetup three'];
     return true;
   }
 
-  upvoteQuestion(questionId) {
-    return {
-      upvotes: 3,
-    }
+  removeMeetup() {
+    this.meetups = ['meetup one', 'meetup two', 'meetup three'];
+    return this.meetups;
   }
 
-  downvoteQuestion(questionId) {
-    return {
-      upvotes: 1,
-    }
+  updateMeetups() {
+    this.meetups = ['meetup one', 'meetup two', 'meetup three'];
+    return this.meetups;
   }
 
+  meetupRSVP() {
+    this.meetups = ['meetup one', 'meetup two', 'meetup three'];
+    return this.meetups;
+  }
 }
 
-module.exports = Questions;
+module.exports = Meetup;
