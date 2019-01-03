@@ -18,6 +18,13 @@ const loginDataValidateRules = {
 const createUserDataValidateRules = {
   password: 'required',
   email: 'required|email',
+  firstname: 'required',
+  lastname: 'required',
+  othername: 'required',
+  phoneNumber: 'numeric',
+  username: 'required',
+  isAdmin: 'integer',
+  // registered: 'requ'
 };
 
 

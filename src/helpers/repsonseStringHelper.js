@@ -5,7 +5,6 @@ const errStrings = {
   createUser: {
     errorCreatingUser: 'Error authenticating user',
   },
-  internalServerErr: 'The server cannot handle your rquest at this time',
 };
 
 
