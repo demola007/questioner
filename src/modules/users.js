@@ -1,4 +1,15 @@
 
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+// const errCodes = require('../helpers/appErrorCodeHelper');
+// const errStrings = require('../helpers/repsonseStringHelper');
+
+const CRYPTO_SALT = 8;
+
+// TODO move to .env;
+const JWT_SECRET = 'myquestionier-dummyapp';
+
 class UserAuthFailedError extends Error {
   constructor(errCode, errMessage, ...args) {
     super(...args);
@@ -15,6 +26,8 @@ class UserAuthFailedError extends Error {
     return this.errMessage;
   }
 }
+
+// Important todo user error codes;
 
 class UserNotFoundError extends Error {
   constructor(errCode, errMessage, ...args) {
@@ -36,24 +49,7 @@ class UserNotFoundError extends Error {
 
 class User {
   constructor() {
-    this.userModel = [
-      {
-        id: 1,
-        name: 'Saboki Demola',
-        email: 'saboki@example.com',
-        password: '1111111',
-        isAdmin: true,
-        jwtToken: 'o45y78werufiodjlkcxeds',
-      },
-      {
-        id: 2,
-        name: 'Test User',
-        email: 'saboki@example.com',
-        password: '1111111',
-        isAdmin: false,
-        jwtToken: 'iejafklnvcfsjdknzv849reiod',
-      },
-    ];
+    this.userModel = [];
     this.AuthFailedErr = UserAuthFailedError;
     this.NotFoundErr = UserNotFoundError;
   }
@@ -80,36 +76,44 @@ class User {
   }
 
   loginUser(userData) {
-  // TODO.. hash password before push the data;
-  // TODO delete password before returning;
     return new Promise((resolve, reject) => {
-      const user = this.userModel.find(x => x.password === userData.password
-      && x.email === userData.email);
+      const user = this.userModel.find(x => x.email === userData.email);
       if (user) {
-        return resolve(User.returnUserData(user));
+        const passwordIsValidbcrypt = bcrypt.compareSync(userData.password, user.password);
+        if (!passwordIsValidbcrypt) {
+          return reject(new this.AuthFailedErr('password incorrect'));
+        }
+        const userJwt = User.getSignJWT(user.id);
+        return resolve(User.returnUserData({ userJwt, userData: user }));
       }
       return reject(new this.AuthFailedErr('user not found'));
     });
   }
 
   createUser(userData) {
-  // validate data;
-  // insert;
-  // TODO test that data doesnt go through with ovalid input;
-  // TODO.. hash password before push the data;
     return new Promise(async (resolve) => {
+      userData.id = this.userModel.length;
+      const userJwt = User.getSignJWT(userData.id);
+      userData.password = bcrypt.hashSync(userData.password, CRYPTO_SALT);
       this.userModel.push(userData);
-      return resolve(this.getUser(userData.id));
+      return resolve({ userJwt, userData: User.returnUserData(userData) });
     });
   }
 
   static returnUserData(userData) {
-    // const getUserData = {};
-    // Object.assign(userData, getUserData);
+    const getUserData = {};
+    Object.assign(getUserData, userData);
 
     // do stuff with userData
-    // delete getUserData.password;
-    return userData;
+    delete getUserData.password;
+    return getUserData;
+  }
+
+  static getSignJWT(userId) {
+    return jwt.sign({ id: userId }, JWT_SECRET, {
+      // expires in 365 days
+      expiresIn: '365d',
+    });
   }
 }
 
