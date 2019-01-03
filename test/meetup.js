@@ -8,7 +8,7 @@ const meetupModule = getModule('meetups');
 
 describe('get all meetups [GET /meetups ]', () => {
   it('it should return an array of meetups', () => {
-    assert(meetupModule.getMeetups() instanceof Array, 'Data returned for get meetups is not an array');
+    assert(meetupModule.getMeetups() instanceof Array)
   });
 });
 
@@ -17,11 +17,11 @@ describe('get a meetup [GET /meetups :param id<int> ]', () => {
   const meetupId = 2;
   const meetup = meetupModule.getMeetup(meetupId);
   it('it should return an array of meetup', () => {
-    assert(meetup instanceof Array, 'Data returned for getMeetup(id) is not an array');
+    assert(meetup instanceof Array);
   });
 
   it('length of meetup returned should be one', () => {
-    assert.equal(meetup.length, 1, 'getMeetup(id) does not return an array with exactly one element');
+    assert.equal(meetup.length, 1);
   });
 });
 
@@ -36,11 +36,11 @@ describe('create a meetup [POST /meetups :param meetupData<Object> ]', () => {
   };
 
   it('it should not throw an exception  while creating a new meetup', () => {
-    assert.doesNotThrow(() => meetupModule.createMeetup(meetupData), 'An exception occured while creating a new meetup');
+    assert.doesNotThrow(() => meetupModule.createMeetup(meetupData));
   });
 
   it('It should return true after creating a meetup', () => {
-    assert.equal(meetupModule.createMeetup(meetupData), true, 'createMeetup(object) did not return true after create');
+    assert.equal(meetupModule.createMeetup(meetupData), true);
   });
 });
 
@@ -55,10 +55,10 @@ describe('create a meetup [POST /meetups :param meetupData<Object> ]', () => {
   };
 
   it('it should not throw an exception  while creating a new meetup', () => {
-    assert.doesNotThrow(() => meetupModule.createMeetup(meetupData), 'An exception occured while creating a new meetup');
+    assert.doesNotThrow(() => meetupModule.createMeetup(meetupData));
   });
 
   it('It should return true after creating a meetup', () => {
-    assert.equal(meetupModule.createMeetup(meetupData), true, 'createMeetup(object) did not return true after create');
+    assert.equal(meetupModule.createMeetup(meetupData), true);
   });
 });

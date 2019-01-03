@@ -41,8 +41,7 @@ class User {
   loginUser(userData) {
   // TODO.. hash password before push the data;
   // TODO delete password before returning;
-    const user = this.userModel.find(x => x.email === userData.email
-      && x.password === userData.password);
+    const user = this.userModel.find(x => x.password === userData.password);
     if (user) {
       return User.returnUserData(user);
     }
@@ -60,7 +59,9 @@ class User {
   }
 
   static returnUserData(userData) {
-    const getUserData = userData;
+    const getUserData = {};
+    Object.assign(userData, getUserData);
+
 
     // do stuff with userData
     delete getUserData.password;
