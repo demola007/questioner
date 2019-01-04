@@ -2,6 +2,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+const BaseErrClass = require('../helpers/BaseErrorClass');
+
 // const errCodes = require('../helpers/appErrorCodeHelper');
 // const errStrings = require('../helpers/repsonseStringHelper');
 
@@ -10,43 +12,22 @@ const CRYPTO_SALT = 8;
 // TODO move to .env;
 const JWT_SECRET = 'myquestionier-dummyapp';
 
-class UserAuthFailedError extends Error {
-  constructor(errCode, errMessage, ...args) {
+class UserAuthFailedError extends BaseErrClass {
+  constructor(...args) {
     super(...args);
     Error.captureStackTrace(this, UserAuthFailedError);
-    this.errorCode = errCode;
-    this.errMessage = errMessage;
   }
+}
 
-  getErrorCode() {
-    return this.errorCode;
-  }
 
-  getCustomeMessage() {
-    return this.errMessage;
+class UserNotFoundError extends Error {
+  constructor(...args) {
+    super(...args);
+    Error.captureStackTrace(this, UserNotFoundError);
   }
 }
 
 // Important todo user error codes;
-
-class UserNotFoundError extends Error {
-  constructor(errCode, errMessage, ...args) {
-    super(...args);
-    Error.captureStackTrace(this, UserAuthFailedError);
-    this.errorCode = errCode;
-    this.errMessage = errMessage;
-  }
-
-  getErrorCode() {
-    return this.errorCode;
-  }
-
-  getCustomeMessage() {
-    return this.errMessage;
-  }
-}
-
-
 class User {
   constructor() {
     this.userModel = [];
@@ -84,7 +65,7 @@ class User {
           return reject(new this.AuthFailedErr('password incorrect'));
         }
         const userJwt = User.getSignJWT(user.id);
-        return resolve(User.returnUserData({ userJwt, userData: user }));
+        return resolve({ userJwt, userData: User.returnUserData(user) });
       }
       return reject(new this.AuthFailedErr('user not found'));
     });
@@ -93,6 +74,7 @@ class User {
   createUser(userData) {
     return new Promise(async (resolve) => {
       userData.id = this.userModel.length;
+      userData.registered = new Date();
       const userJwt = User.getSignJWT(userData.id);
       userData.password = bcrypt.hashSync(userData.password, CRYPTO_SALT);
       this.userModel.push(userData);

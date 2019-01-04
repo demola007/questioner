@@ -2,8 +2,8 @@ const express = require('express');
 const Validator = require('validatorjs');
 const HttpStatus = require('http-status-codes');
 
-const getModule = require('../modules');
-const responseHelper = require('../helpers/responseHelper');
+const getModule = require('../../modules');
+const responseHelper = require('../../helpers/responseHelper');
 
 
 const router = express.Router();
@@ -28,7 +28,7 @@ const createUserDataValidateRules = {
 };
 
 
-/* POST a new users. */
+/* POST: login user. */
 router.post('/login', async (req, res) => {
   const validation = new Validator(req.body, loginDataValidateRules);
   if (validation.fails()) {
@@ -43,7 +43,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-/* POST a new users. */
+/* POST: create a new users. */
 router.post('/', async (req, res) => {
   const validation = new Validator(req.body, createUserDataValidateRules);
   if (validation.fails()) {
