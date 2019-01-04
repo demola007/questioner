@@ -5,60 +5,80 @@ const getModule = require('../src/modules');
 
 const meetupModule = getModule('meetups');
 
+const meetupData = {
+  location: 'Lekki, Banana island ',
+  images: ['img1.jpg', 'img2.jpg'],
+  topic: 'Mocha test one',
+  happeningOn: new Date(),
+  tags: ['#cool', '#makenigeriagreatagain'],
+  user: 1,
+  id: 0,
+};
+
+
+const rsvpData = {
+  meetup: 2,
+  user: 1,
+  response: 'yes',
+  id: 1,
+};
+
 
 describe('get all meetups [GET /meetups ]', () => {
-  it('it should return an array of meetups', () => {
-    assert(meetupModule.getMeetups() instanceof Array)
+  it('it should return an array of meetups', async () => {
+    const meetups = await meetupModule.getMeetups();
+    assert(meetups instanceof Array);
   });
 });
 
 
 describe('get a meetup [GET /meetups :param id<int> ]', () => {
-  const meetupId = 2;
-  const meetup = meetupModule.getMeetup(meetupId);
-  it('it should return an array of meetup', () => {
-    assert(meetup instanceof Array);
+  // add meetup
+  before(() => new Promise((resolve) => {
+    const meetupAdded = meetupModule.createMeetup(meetupData);
+    resolve(meetupAdded);
+  }));
+
+  it('it should return a meetup object', async () => {
+    const meetup = await meetupModule.getMeetup(meetupData.id);
+    assert(meetup instanceof Object);
   });
 
-  it('length of meetup returned should be one', () => {
-    assert.equal(meetup.length, 1);
-  });
-});
-
-
-describe('create a meetup [POST /meetups :param meetupData<Object> ]', () => {
-  const meetupData = {
-    id: 1,
-    name: 'ProjectX',
-    created: '2pm',
-    likes: 0,
-    upvote: 0,
-  };
-
-  it('it should not throw an exception  while creating a new meetup', () => {
-    assert.doesNotThrow(() => meetupModule.createMeetup(meetupData));
-  });
-
-  it('It should return true after creating a meetup', () => {
-    assert.equal(meetupModule.createMeetup(meetupData), true);
+  it('it should return same meetup added earlier', async () => {
+    const meetup = await meetupModule.getMeetup(meetupData.id);
+    assert.deepEqual(meetup, meetupData);
   });
 });
 
 
 describe('create a meetup [POST /meetups :param meetupData<Object> ]', () => {
-  const meetupData = {
-    id: 1,
-    name: 'ProjectX',
-    created: '2pm',
-    likes: 0,
-    upvote: 0,
-  };
-
   it('it should not throw an exception  while creating a new meetup', () => {
     assert.doesNotThrow(() => meetupModule.createMeetup(meetupData));
   });
 
-  it('It should return true after creating a meetup', () => {
-    assert.equal(meetupModule.createMeetup(meetupData), true);
+  it('should return same data inserted  as newly added meetup', async () => {
+    const meetup = await meetupModule.createMeetup(meetupData);
+    assert.equal(meetup, meetupData);
+  });
+});
+
+describe('POST: RSVP a meetup [POST /meetups/<id>/rsvps :param rsvpData<Object> ]', async () => {
+  it('it should not reject when adding rsvp', async () => {
+    before(() => new Promise(async (resolve) => {
+      meetupModule.meetupModel = [];
+      const meetup = await meetupModule.createMeetup(meetupData);
+      resolve(meetup);
+    }));
+    await assert.doesNotReject(async () => meetupModule.meetupRSVP(rsvpData));
+  });
+
+  it('it should return newly added rsvp', async () => {
+    meetupModule.rsvpModel = [];
+    const rsvp = await meetupModule.meetupRSVP(rsvpData);
+    assert.equal(rsvp[0], rsvpData);
+  });
+
+  it('it should not rsvp more than once', async () => {
+    await assert.rejects(async () => meetupModule.meetupRSVP(rsvpData));
   });
 });

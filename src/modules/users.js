@@ -37,7 +37,7 @@ class User {
 
   getUser(userId) {
     return new Promise((resolve, reject) => {
-      const user = this.userModel.find(x => x.id === userId);
+      const user = this.userModel.find(x => x.id === parseInt(userId, 10));
       if (user) {
         return resolve(User.returnUserData(user));
       }

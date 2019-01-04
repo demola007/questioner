@@ -1,5 +1,7 @@
 
 const BaseErrClass = require('../helpers/BaseErrorClass');
+const ErrorStrings = require('../helpers/repsonseStringHelper');
+
 
 class QuestionNotFoundError extends BaseErrClass {
   constructor(...args) {
@@ -25,7 +27,7 @@ class Questions {
       if (question) {
         return resolve(question);
       }
-      return reject(new QuestionNotFoundError());
+      return reject(new QuestionNotFoundError(ErrorStrings.questionNotFound));
     });
   }
 
@@ -48,7 +50,7 @@ class Questions {
         question.votes = (isUpvote) ? (currentVote + 1) : (currentVote - 1);
         return resolve(question);
       }
-      return reject(new QuestionNotFoundError());
+      return reject(new QuestionNotFoundError(ErrorStrings.questionNotFound));
     });
   }
 }

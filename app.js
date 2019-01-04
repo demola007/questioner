@@ -35,6 +35,7 @@ app.use(async (req, res, next) => {
 // routes to exlude from authorization
   if (req.originalUrl === '/v1/users/create-admin'
       || (req.originalUrl === '/v1/users' && req.method === 'POST')
+      || (req.originalUrl === '/')
       || (req.originalUrl === '/v1/users/login' && req.method === 'POST')
   ) {
     return next();
@@ -52,7 +53,13 @@ app.use(async (req, res, next) => {
       return responseHelper.endResponse(res, HttpStatus.UNAUTHORIZED, ErrorStrings.authFailed);
     }
   } catch (error) {
-    return responseHelper.endResponse(res, HttpStatus.UNAUTHORIZED, ErrorStrings.authFailed);
+    if (error instanceof userModule.AuthFailedErr) {
+      return responseHelper.endResponse(res, HttpStatus.UNAUTHORIZED, ErrorStrings.authFailed);
+    }
+    return responseHelper.endResponse(
+      res,
+      HttpStatus.INTERNAL_SERVER_ERROR, ErrorStrings.internalServerError,
+    );
   }
   return false;
 });

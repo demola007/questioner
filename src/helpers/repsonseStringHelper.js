@@ -4,6 +4,7 @@ const errStrings = {
   questionNotFound: 'Question not found',
   loginFailed: 'Login failed',
   authFailed: 'Could not authenticate user',
+  internalServerError: 'Internal server error',
 };
 
 
