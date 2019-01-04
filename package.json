@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon  ./bin/www",
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "build": "node ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^3.0.3",
