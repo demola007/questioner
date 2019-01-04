@@ -71,8 +71,10 @@ router.post('/', async (req, res) => {
     return responseHelper.endResponse(res, HttpStatus.UNPROCESSABLE_ENTITY, validation.errors);
   }
   try {
-    const user = await meetupModule.createMeetup(req.body);
-    return responseHelper.endResponse(res, HttpStatus.OK, user);
+    const user = req.getUserId();
+    const meetupData = { ...req.body, user };
+    const meetup = await meetupModule.createMeetup(meetupData);
+    return responseHelper.endResponse(res, HttpStatus.OK, meetup);
   } catch (error) {
     return responseHelper.endResponse(res, HttpStatus.INTERNAL_SERVER_ERROR);
   }

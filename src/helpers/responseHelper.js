@@ -17,7 +17,6 @@ const endResponse = (responseObject, statusCode, data) => {
     .status(statusCode).send({ status: statusCode, ...response });
 };
 
-
 module.exports = {
   endResponse,
 };
