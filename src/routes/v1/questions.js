@@ -48,7 +48,7 @@ router.post('/', async (req, res) => {
 });
 
 /* PATCH: upvote a  question. */
-router.patch('/:questionId/upvote', async (req, res) => {
+router.patch('/:questionId(\\d+)/upvote', async (req, res) => {
   const validation = new Validator(req.params, upvoteDownVoteValidations);
   if (validation.fails()) {
     return responseHelper.endResponse(res, HttpStatus.UNPROCESSABLE_ENTITY, validation.errors);
@@ -65,7 +65,7 @@ router.patch('/:questionId/upvote', async (req, res) => {
 });
 
 /* PATCH: downvote a  question. */
-router.patch('/:questionId/downvote', async (req, res) => {
+router.patch('/:questionId(\\d+)/downvote', async (req, res) => {
   const validation = new Validator(req.params, upvoteDownVoteValidations);
   if (validation.fails()) {
     return responseHelper.endResponse(res, HttpStatus.UNPROCESSABLE_ENTITY, validation.errors);
