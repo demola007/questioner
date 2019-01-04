@@ -27,9 +27,7 @@ class Meetup {
   }
 
   getMeetups() {
-    return new Promise((resolve) => {
-      return resolve(this.meetupModel);
-    });
+    return new Promise(resolve => resolve(this.meetupModel));
   }
 
   getUpcomingMeetups(userId) {
