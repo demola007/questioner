@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 });
 
 /* GET: get a specific meetup  */
-router.get('/:id(\\d+)/', async (req, res) => {
+router.get('/:id(\\d+)', async (req, res) => {
   try {
     const meetup = await meetupModule.getMeetup(req.params.id);
     return responseHelper.endResponse(res, HttpStatus.OK, meetup);

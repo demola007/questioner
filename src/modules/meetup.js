@@ -88,7 +88,7 @@ class Meetup {
       const meetup = this.meetupModel.find(x => x.id === parseInt(rsvpData.meetup, radix));
       if (meetup) {
         const hasRsvped = this.rsvpModel.find(x => x.user === parseInt(rsvpData.user, radix)
-         && x.meetup, radix === parseInt(rsvpData.meetup, radix));
+         && x.meetup === parseInt(rsvpData.meetup, radix));
         if (!hasRsvped) {
           this.rsvpModel.push(rsvpData);
           // return all rsvp
