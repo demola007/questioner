@@ -1,6 +1,6 @@
 
 class BaseErrorClass extends Error {
-  constructor(errCode, errMessage, ...args) {
+  constructor(errMessage, errCode, ...args) {
     super(...args);
     Error.captureStackTrace(this, BaseErrorClass);
     this.errorCode = errCode;
@@ -11,7 +11,7 @@ class BaseErrorClass extends Error {
     return this.errorCode;
   }
 
-  getCustomeMessage() {
+  getMessage() {
     return this.errMessage;
   }
 }
