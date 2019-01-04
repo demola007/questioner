@@ -1,40 +1,56 @@
+
+const BaseErrClass = require('../helpers/BaseErrorClass');
+
+class QuestionNotFoundError extends BaseErrClass {
+  constructor(...args) {
+    super(...args);
+    Error.captureStackTrace(this, QuestionNotFoundError);
+  }
+}
+
+
 class Questions {
   constructor() {
-    this.questionModel = null;
+    this.questionModel = [];
+    this.questionNotFoundError = QuestionNotFoundError;
   }
 
   getQuestions() {
-    this.meetups = ['meetup one'];
-    return {
-      upvotes: 2,
-    };
+    return new Promise(resolve => resolve(this.questionModel));
   }
 
   getQuestion(questionId) {
-    this.questionModel = ['meetup one'];
-    return [
-      {
-        upvotes: 2,
+    return new Promise((resolve, reject) => {
+      const question = this.questionModel.find(x => x.id === parseInt(questionId, 10));
+      if (question) {
+        return resolve(question);
       }
-    ];
+      return reject(new QuestionNotFoundError());
+    });
   }
 
   createQuestion(questionData) {
-    return true;
+    return new Promise((resolve) => {
+      questionData.id = this.questionModel.length;
+      questionData.createdOn = new Date();
+      questionData.votes = 0;
+      this.questionModel.push(questionData);
+      return resolve(questionData);
+    });
   }
 
-  upvoteQuestion(questionId) {
-    return {
-      upvotes: 3,
-    }
-  }
 
-  downvoteQuestion(questionId) {
-    return {
-      upvotes: 1,
-    }
+  voteQuestion(questionId, isUpvote = true) {
+    return new Promise((resolve, reject) => {
+      const question = this.questionModel.find(x => x.id === parseInt(questionId, 10));
+      if (question) {
+        const currentVote = question.votes;
+        question.votes = (isUpvote) ? (currentVote + 1) : (currentVote - 1);
+        return resolve(question);
+      }
+      return reject(new QuestionNotFoundError());
+    });
   }
-
 }
 
 module.exports = Questions;

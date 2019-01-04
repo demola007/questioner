@@ -1,10 +1,9 @@
 const errStrings = {
-  login: {
-    invalidUser: 'Error authenticating user',
-  },
-  createUser: {
-    errorCreatingUser: 'Error authenticating user',
-  },
+  meetupNotFound: 'Meetup not found',
+  AlreadyRsvped: 'A user can only rsvp ones per meetup',
+  questionNotFound: 'Question not found',
+  loginFailed: 'Login failed',
+  authFailed: 'Could not authenticate user',
 };
 
 
