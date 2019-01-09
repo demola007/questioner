@@ -3,7 +3,7 @@
 html { 
 height: 101%; 
 font-family: “Helvetica Neue”, Arial, Helvetica, sans-serif;
- background: #fff; }
+background: #fff; }
  
 body { 
 font-size: 62.5%;
@@ -57,7 +57,7 @@ margin-bottom: 10px; }
 
 .wrapper { 
 
-width: 800px 
+width: 500px 
 overflow: hidden; 
 margin: 0 auto; 
 background: none; }
@@ -90,7 +90,8 @@ border: 1px solid #969696; }
 #content { 
 display: block; 
 width: 820px; 
-margin: 0 auto;  }
+margin: 0 auto; 
+ }
 
 #left { 
 display: block; 
@@ -148,8 +149,8 @@ display: block;
 width: auto; 
 background-color: #f9f9f9; 
 border: 1px solid #ccc; 
--moz-border-radius: 5px; 
--webkit-border-radius: 5px; 
+/*-moz-border-raius: 5px;*/ 
+/*-webkit-border-raius: 5px; */
 border-radius: 5px; 
 padding: 12px; }
 
@@ -230,10 +231,10 @@ font-size: 3.4em;
 line-height: 1.1em; 
 font-weight: bold; }
 
-#right .gcontent { 
-display: block; 
-margin-bottom: 20px; 
-}
+/*#right .gcontent { 
+display: inline; 
+margin-bottom: 0px; 
+}*/
 
 #right .gcontent .head { 
 background: #589fc6; 
@@ -247,8 +248,8 @@ font-size: 1.4em; }
 
 #right .gcontent .boxy { 
 border-radius: 0px 0px 5px 5px; 
-border: 1px solid #ccc; 
-border-top: 0px; 
+border: 4px solid #ccc; 
+border-top: 10px; 
 padding: 10px 8px; 
 background: #f9f9f9; }
 
@@ -256,10 +257,10 @@ background: #f9f9f9; }
 
 #right .gcontent .boxy .badgeCount a img { margin-right: 8px; }*/
 
-/*#right .gcontent .boxy span { 
-font-size: 1.2em; 
+#right .gcontent .boxy span { 
+font-size: 1.9em; 
 display: block; 
-margin-bottom: 7px; }*/
+margin-bottom: 7px; }
 
 #right .gcontent .boxy .friendslist { 
 display: block; 
@@ -281,22 +282,22 @@ margin-right: 4px; }
 
 #right .gcontent .boxy .friend .friendly {
 	position: relative; 
-	top: 16px; 
-	font-size: 1.2em; }
+	top: 20px; 
+	font-size: 1.0em; }
 
 
 .clearfix:after { 
 content: "."; 
 display: block; 
 clear: both; 
-visibility: hidden; 
-line-height: 0; 
-height: 0; }
+/*visibility: hidden;*/ 
+/*line-height: 0; */
+/*height: 0;*/ }
 
-.clearfix { display: inline-block; }
+/*.clearfix { display: inline-block; }*/
  
-html[xmlns] .clearfix { display: block; }
+/*html[xmlns] .clearfix { display: block; }
 
 * html .clearfix { height: 1%; }
 
-.nobrdr { border: 0px !important; }
+.nobrdr { border: 0px !important; }*/
