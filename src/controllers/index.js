@@ -4,8 +4,11 @@
 */
 
 const MeetupsModule = require('./meetup');
+//import MeetupsModule from './meetup'
 const QuestionsModule = require('./questions');
+//import QuestionsModule from './questions'
 const UsersModule = require('./users');
+//import UsersModule from './users'
 
 let meetupModuleInstance = null;
 let questionModuleInstance = null;
@@ -35,3 +38,4 @@ const getModule = (moduleName) => {
 };
 
 module.exports = getModule;
+//export default getModule;

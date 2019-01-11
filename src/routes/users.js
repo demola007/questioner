@@ -1,10 +1,13 @@
 const express = require('express');
+//import express from 'express';
 const Validator = require('validatorjs');
+//import Validator from 'validatorjs'
 const HttpStatus = require('http-status-codes');
-
+//import HttpStatus from 'http-status-codes'
 const getModule = require('../../modules');
+//import getModule from '../../modules'
 const responseHelper = require('../../helpers/responseHelper');
-
+//import responseHelper from ../../helpers/responseHelper
 
 const router = express.Router();
 const userModule = getModule('users');
@@ -59,3 +62,4 @@ router.post('/', async (req, res) => {
 
 
 module.exports = router;
+//exports default router;

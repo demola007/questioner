@@ -9,3 +9,4 @@ const getUserId = (req) => {
 
 
 module.exports = { getUserId };
+//export default {getUserId};

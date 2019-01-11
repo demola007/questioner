@@ -1,19 +1,36 @@
 const createError = require('http-errors');
+//import  createError from 'http-errors';
 const express = require('express');
+//import express from 'express';
 const path = require('path');
+//import path from 'path';
 const cookieParser = require('cookie-parser');
+//import cookie-parser from 'cookie-parser';
 const logger = require('morgan');
+//import logger from 'morgan';
 const HttpStatus = require('http-status-codes');
+//import HttpStatus from 'http-status-codes';
 
 const indexRouter = require('./src/routes/v1/index');
+//import indexRouter from './src/routes/v1/index';
 const usersRouter = require('./src/routes/v1/users');
+//import usersRouter from './src/routes/v1/users';
+
 const meetupsRouter = require('./src/routes/v1/meetups');
+//import meetupsRouter from './src/routes/v1/meetups';
+
 const questionsRouter = require('./src/routes/v1/questions');
+//import questionsRouter from './src/routes/v1/questions';
 
 const getModule = require('./src/modules');
+//import getModule from './src/modules';
 const responseHelper = require('./src/helpers/responseHelper');
+//import responseHelper from './src/helpers/responseHelper';
 const ErrorStrings = require('./src/helpers/repsonseStringHelper');
+//import ErrorStrings from './src/helpers/repsonseStringHelper';
 const { getUserId } = require('./src/helpers/sessionHelper');
+//import {getUserId} from './src/helpers/sessionHelper';
+
 
 const userModule = getModule('users');
 const app = express();
@@ -87,3 +104,4 @@ app.use((err, req, res) => {
 });
 
 module.exports = app;
+//export default app;

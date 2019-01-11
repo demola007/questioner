@@ -56,7 +56,6 @@ line-height: 1.3em;
 margin-bottom: 10px; }
 
 .wrapper { 
-
 width: 500px 
 overflow: hidden; 
 margin: 0 auto; 
@@ -173,9 +172,9 @@ height: 166px;
 padding: 4px; 
 padding-left: 15px; 
 background: #e6e6e6; 
-overflow:  hidden; 
+/*overflow:  hidden; */
 box-sizing: border-box; 
--moz-box-sizing: border-box; }
+/*-moz-box-sizing: border-box;*/ }
 
 #userStats .data h1 { 
 color: #474747; 
@@ -187,9 +186,9 @@ color: #666;
 line-height: 0.9em; 
 margin-bottom: 5px; }
 
-#userStats .data h4 { 
+/*#userStats .data h4 { 
 font-size: 1.2em; 
-line-height: 1.3em; }
+line-height: 1.9em; }*/
 
 #userStats .data .socialMediaLinks { 
 position: absolute; 
@@ -202,18 +201,20 @@ margin-right: 5px; }
 #userStats .data .sep { 
 clear: both; 
 margin-top: 40px; 
-width: 320px; 
-height: 1px; 
-border-bottom: 1px solid #ccc; 
-margin-bottom: 0; }
+width: 520px; 
+height:1px; 
+/*border-bottom: 1px solid #ccc; */
+border-top:  1px solid #ccc;
+/*margin-bottom: 10;*/ }
 
 #userStats .data ul.numbers { 
 list-style: none; 
-width: 320px; 
+width: 420px; 
 padding-top: 7px; 
 margin-top: 0; 
 border-top: 1px solid #fff; 
-color: #676767; }
+color: #676767; 
+}
 
 #userStats .data ul.numbers li { 
 width: 95px; 
@@ -239,19 +240,22 @@ margin-bottom: 0px;
 #right .gcontent .head { 
 background: #589fc6; 
 border: 1px solid #3e82a7; 
-padding-left: 8px; }
+padding-left: 8px; 
+}
 
 #right .gcontent .head h1 { 
 color: #fafcfd; 
 font-weight: bold; 
-font-size: 1.4em; }
+font-size: 1.4em; 
+}
 
 #right .gcontent .boxy { 
 border-radius: 0px 0px 5px 5px; 
 border: 4px solid #ccc; 
 border-top: 10px; 
 padding: 10px 8px; 
-background: #f9f9f9; }
+background: #f9f9f9; 
+}
 
 /*#right .gcontent .boxy .badgeCount { margin-bottom: 30px;  }
 
@@ -269,21 +273,21 @@ margin-bottom: 15px; }
 #right .gcontent .boxy .friend { 
 border-top: 1px solid #ccc; 
 float: left;
-height: 40px;
+height: 30px;
 padding: 5px 5px 5px 4px;
-width: 100px; }
+width: 1000px; }
  
-#right .gcontent .boxy .friend img { 
+/*#right .gcontent .boxy .friend img { 
 border: 1px solid #ccc; 
 float: left; 
 padding: 2px; 
 background: #fff;
-margin-right: 4px; }
+margin-right: 4px; }*/
 
 #right .gcontent .boxy .friend .friendly {
 	position: relative; 
-	top: 20px; 
-	font-size: 1.0em; }
+	top: 10px; 
+	font-size: 1.5em; }
 
 
 .clearfix:after { 

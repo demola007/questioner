@@ -18,3 +18,4 @@ class BaseErrorClass extends Error {
 
 
 module.exports = BaseErrorClass;
+//export default BaseErrorClass;

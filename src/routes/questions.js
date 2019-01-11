@@ -1,9 +1,14 @@
 const express = require('express');
+//import express from 'express';
 const HttpStatus = require('http-status-codes');
+//import HttpStatus from 'http-status-codes'
 const Validator = require('validatorjs');
+//import Validator from 'validatorjs'
 
 const getModule = require('../../modules');
+//import getModule from '../../modules'
 const responseHelper = require('../../helpers/responseHelper');
+//import responseHelper from '../../helpers/responseHelper'
 
 const questionsModule = getModule('questions');
 const router = express.Router();
@@ -83,3 +88,4 @@ router.patch('/:questionId(\\d+)/downvote', async (req, res) => {
 
 
 module.exports = router;
+//export default router;

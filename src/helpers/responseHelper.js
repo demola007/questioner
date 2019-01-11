@@ -20,3 +20,4 @@ const endResponse = (responseObject, statusCode, data) => {
 module.exports = {
   endResponse,
 };
+//export default {endResponse,};
