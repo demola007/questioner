@@ -1,14 +1,14 @@
 //const express = require('express');
 import express from 'express';
 //const HttpStatus = require('http-status-codes');
-import HttpStatus from 'http-status-codes'
+import HttpStatus from 'http-status-codes';
 //const Validator = require('validatorjs');
-import Validator from 'validatorjs'
+import Validator from 'validatorjs';
 
 //const getModule = require('../../modules');
-import getModule from '../../controllers'
+import getModule from '../controllers';
 //const responseHelper = require('../../helpers/responseHelper');
-import responseHelper from '../../helpers/responseHelper'
+import responseHelper from '../helpers/responseHelper';
 
 const questionsModule = getModule('questions');
 const router = express.Router();

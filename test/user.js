@@ -3,7 +3,7 @@
 import assert from 'assert';
 
 //const getModule = require('../src/controllers');
-import getModule from '../src/controllers'
+import getModule from '../src/controllers';
 
 const userModule = getModule('users');
 

@@ -5,7 +5,7 @@ import express from 'express';
 //const path = require('path');
 import path from 'path';
 //const cookieParser = require('cookie-parser');
-import cookie-parser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 //const logger = require('morgan');
 import logger from 'morgan';
 //const HttpStatus = require('http-status-codes');
@@ -50,10 +50,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Authenticate request and Add needed data to request object
 app.use(async (req, res, next) => {
 // routes to exlude from authorization
-  if (req.originalUrl === '/v1/users/create-admin'
-      || (req.originalUrl === '/v1/users' && req.method === 'POST')
+  if (req.originalUrl === '/users/create-admin'
+      || (req.originalUrl === '/users' && req.method === 'POST')
       || (req.originalUrl === '/')
-      || (req.originalUrl === '/v1/users/login' && req.method === 'POST')
+      || (req.originalUrl === '/users/login' && req.method === 'POST')
   ) {
     return next();
   }
@@ -103,5 +103,5 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-module.exports = app;
-//export default app;
+//module.exports = app;
+export default app;
