@@ -1,9 +1,13 @@
 
-const assert = require('assert');
+//const assert = require('assert');
+import assert from 'assert';
 
-const getModule = require('../src/modules');
+//const getModule = require('../src/controllers');
+import getModule from '../src/controllers'
 
-const questionModule = getModule('questions');
+//const questionModule = getModule('questions');
+import questionModule from 'questions';
+
 const questionData = {
   id: 1,
   name: 'ProjectX',

@@ -1,4 +1,5 @@
-const HttpStatus = require('http-status-codes');
+//const HttpStatus = require('http-status-codes');
+import HttpStatus from 'http-status-codes';
 
 
 const endResponse = (responseObject, statusCode, data) => {
@@ -17,6 +18,7 @@ const endResponse = (responseObject, statusCode, data) => {
     .status(statusCode).send({ status: statusCode, ...response });
 };
 
-module.exports = {
-  endResponse,
-};
+//module.exports = {
+  //endResponse,
+//};
+export default {endResponse,};

@@ -8,4 +8,5 @@ const errStrings = {
 };
 
 
-module.exports = errStrings;
+//module.exports = errStrings;
+export default errStrings;

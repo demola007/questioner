@@ -1,11 +1,11 @@
 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+//const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
+//const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
+//const BaseErrClass = require('../helpers/BaseErrorClass');
+import BaseErrorClass from '../helpers/BaseErrorClass';
 
-const BaseErrClass = require('../helpers/BaseErrorClass');
-
-// const errCodes = require('../helpers/appErrorCodeHelper');
-// const errStrings = require('../helpers/repsonseStringHelper');
 
 const CRYPTO_SALT = 8;
 
@@ -99,4 +99,5 @@ class User {
   }
 }
 
-module.exports = User;
+//module.exports = User;
+export default router;

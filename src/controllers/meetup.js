@@ -1,6 +1,8 @@
 
-const BaseErrClass = require('../helpers/BaseErrorClass');
-const ErrorStrings = require('../helpers/repsonseStringHelper');
+//const BaseErrClass = require('../helpers/BaseErrorClass');
+import BaseErrClass from '../helpers/BaseErrorClass'
+//const ErrorStrings = require('../helpers/repsonseStringHelper');
+import ErrorStrings from '../helpers/repsonseStringHelper'
 
 const radix = 10;
 
@@ -60,27 +62,7 @@ class Meetup {
     });
   }
 
-  // removeMeetup(meetupId) {
-  //   return new Promise((resolve) => {
-  //    for (let index = 0; index < this.meetupModel.length; index += 1) {
-  //       if (this.meetupModel[index].id === meetupId) {
-  //         this.meetupModel.splice(index, 1);
-  //       }
-  //     }
-  //     return resolve(true);
-  //   });
-  // }
-
-  // updateMeetups(meetupId) {
-  //  return new Promise((resolve) => {
-  //    for (let index = 0; index < this.meetupModel.length; index += 1) {
-  //     if (this.meetupModel[index].id === meetupId) {
-  //       this.meetupModel.splice(index, 1);
-  //     }
-  //   }
-  //    return resolve(true);
-  //  });
-  // }
+  
 
   // Todo needs more info
   meetupRSVP(rsvpData) {
@@ -101,4 +83,5 @@ class Meetup {
   }
 }
 
-module.exports = Meetup;
+//module.exports = Meetup;
+export default Meetup

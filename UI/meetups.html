@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Meetups</title>
+	<link rel="stylesheet" type="text/css" href="meetups.css">
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<a href="#"> <img src="questioner-pix/questioner-image/q3.jpg"  alt="Qlogo"/></a>
+			
+			<span id="usernav"><a href="#">Logout</a> - <a href="#">Settings</a> - <a href="#">Back to My Profile<span><img src="questioner-pix/avatar-small.jpg" /></span></a></span>
+		</div>
+	</header>
+
+
+	<div>
+			<section id="meetups">
+				<div>
+					<h2> Availabe meetups</h2>
+					<p>Click the tabs to view details of each meetup</p>
+
+					<div class="tab">
+  						<button class="tablinks" onclick="openCity(event, 'Tech')" id="defaultOpen">Tech Center 2019</button>
+  						<button class="tablinks" onclick="openCity(event, 'Election')">Election Center</button>
+  						<button class="tablinks" onclick="openCity(event, 'Sports')">Sports</button>
+					</div>
+
+					<div id="Tech" class="tabcontent">
+ 							 <h3>Tech Center Event 2019</h3>
+  						   	<div class="para"><p>Tech Center event is here again, join us as we unveil whats new in the world of technology</p>
+  						   		<p>Venue: Eko Hotels </p> <p>Time: 2pm</p>
+  						   	</div>
+
+  						   	<div class="extra">
+  						   		<fieldset> <legend>Feedback:</legend>
+  						   			<form>
+  						   				<p>Have a Question?: </p> <input type="text" name="question"> <input type="submit" name="post" value="Post">
+  						   				<p>Comments: </p> <input type="text" name="Comments"> <input type="submit"  name="submit" value="Post">
+  						   				<p>Vote on question</p> <input type="submit" name="Upvote" value="Upvote"> <input type="submit" name="downvote" value="downvote">
+  						   				<p>Want to RSVP for event? <button>RSVP</button></p>
+
+  						   			</form>
+  						   		</fieldset>
+
+  						   	</div>
+					</div>
+
+					<div id="Election" class="tabcontent">
+  								<h3>Election Center 2019</h3>
+							  <div class="para"><p>Its Elections season, join us here as we discuss on the various candidates of this years elections and their plans for the country</p> 
+							  <p>Venue: Channels Televsion Lagos Ibadan Expressway </p> <p>Time: 6pm</p>
+								</div>
+							  <div class="extra">
+  						   		<fieldset> <legend>Feedback:</legend>
+  						   			<form>
+  						   				<p>Have a Question?: </p> <input type="text" name="question"> <input type="submit" name="post" value="Post">
+  						   				<p>Comments: </p> <input type="text" name="Comments"> <input type="submit"  name="submit" value="Post">
+  						   				<p>Vote on question</p> <input type="submit" name="Upvote" value="Upvote"> <input type="submit" name="downvote" value="downvote">
+  						   				<p>Want to RSVP for event? <button>RSVP</button></p>
+  						   			</form>
+  						   		</fieldset>
+
+  						   	</div>
+					</div>
+
+					<div id="Sports" class="tabcontent">
+ 							 <h3>Sports Champions Season 2019</h3>
+ 							 <div class="para">
+ 							 <p>Sports seasons just entered its most interesting phase, Join us as we take a look at stand out team performances and teams who are likely to pick up trophies this year</p>
+ 							 <p>Venue: National Stadium </p> <p>Time: 8pm</p>
+
+ 							 </div>
+ 							 <div class="extra">
+  						   		<fieldset> <legend>Feedback:</legend>
+  						   			<form>
+  						   				<p>Have a Question?: </p> <input type="text" name="question"> <input type="submit" name="post" value="Post">
+  						   				<p>Comments: </p> <input type="text" name="Comments"> <input type="submit"  name="submit" value="Post">
+  						   				<p>Vote on question</p> <input type="submit" name="Upvote" value="Upvote"> <input type="submit" name="downvote" value="downvote">
+
+  						   				<p>Want to RSVP for event? <button>RSVP</button></p>
+  						   			</form>
+  						   		</fieldset>
+
+  						   	</div>
+					</div>
+				</div>
+			</section>
+	</div>
+
+
+<script src="meetups.js"></script>
+</body>
+</html>

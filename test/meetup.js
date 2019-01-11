@@ -1,9 +1,12 @@
 
-const assert = require('assert');
+//const assert = require('assert');
+import assert from 'assert';
 
-const getModule = require('../src/modules');
+//const getModule = require('../src/controllers');
+import getModule from '../src/controllers';
 
-const meetupModule = getModule('meetups');
+//const meetupModule = getModule('meetups');
+import meetupModule from 'meetups';
 
 const meetupData = {
   location: 'Lekki, Banana island ',

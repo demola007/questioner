@@ -3,9 +3,12 @@
  A factory to help create singleton instances of modules as needed;
 */
 
-const MeetupsModule = require('./meetup');
-const QuestionsModule = require('./questions');
-const UsersModule = require('./users');
+//const MeetupsModule = require('./meetup');
+import MeetupsModule from './meetup'
+//const QuestionsModule = require('./questions');
+import QuestionsModule from './questions'
+//const UsersModule = require('./users');
+import UsersModule from './users'
 
 let meetupModuleInstance = null;
 let questionModuleInstance = null;
@@ -34,4 +37,5 @@ const getModule = (moduleName) => {
   return null;
 };
 
-module.exports = getModule;
+//module.exports = getModule;
+export default getModule;

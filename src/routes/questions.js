@@ -1,9 +1,14 @@
-const express = require('express');
-const HttpStatus = require('http-status-codes');
-const Validator = require('validatorjs');
+//const express = require('express');
+import express from 'express';
+//const HttpStatus = require('http-status-codes');
+import HttpStatus from 'http-status-codes'
+//const Validator = require('validatorjs');
+import Validator from 'validatorjs'
 
-const getModule = require('../../modules');
-const responseHelper = require('../../helpers/responseHelper');
+//const getModule = require('../../modules');
+import getModule from '../../controllers'
+//const responseHelper = require('../../helpers/responseHelper');
+import responseHelper from '../../helpers/responseHelper'
 
 const questionsModule = getModule('questions');
 const router = express.Router();
@@ -14,8 +19,7 @@ const createQuestionDataValidateRules = {
   title: 'required',
   body: 'required',
   votes: 'integer',
-  // createdOn: 'required',
-  // id,
+ 
 };
 
 const upvoteDownVoteValidations = {
@@ -82,4 +86,5 @@ router.patch('/:questionId(\\d+)/downvote', async (req, res) => {
 });
 
 
-module.exports = router;
+//module.exports = router;
+export default router;
