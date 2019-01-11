@@ -8,5 +8,5 @@ const getUserId = (req) => {
 };
 
 
-module.exports = { getUserId };
-//export default {getUserId};
+//module.exports = { getUserId };
+export default {getUserId};

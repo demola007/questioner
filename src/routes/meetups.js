@@ -1,14 +1,14 @@
-const express = require('express');
-//import express from 'express';
-const HttpStatus = require('http-status-codes');
-//import HttpStatus from 'http-status-codes'
-const Validator = require('validatorjs');
-//import Validator from 'validatorjs'
+//const express = require('express');
+import express from 'express';
+//const HttpStatus = require('http-status-codes');
+import HttpStatus from 'http-status-codes'
+//const Validator = require('validatorjs');
+import Validator from 'validatorjs'
 
-const getModule = require('../../modules');
-//import getModule from '../../modules'
-const responseHelper = require('../../helpers/responseHelper');
-//import responseHelper from '../../helpers/responseHelper'
+//const getModule = require('../../modules');
+import getModule from '../../controllers'
+//const responseHelper = require('../../helpers/responseHelper');
+import responseHelper from '../../helpers/responseHelper'
 
 const meetupModule = getModule('meetups');
 const router = express.Router();
@@ -19,15 +19,12 @@ const createMeetupDataValidateRules = {
   topic: 'required',
   happeningOn: 'required',
   tags: 'required',
-  // createdOn.
-  // id,
 };
 
 const rsvpMeetupValidateRules = {
   meetup: 'required|integer',
   response: 'required',
-  // createdOn.
-  // id,
+  
 };
 
 /* GET: get all meetups  */
@@ -110,5 +107,5 @@ router.post('/:meetupid/rsvps', async (req, res) => {
   }
 });
 
-module.exports = router;
-//export default router;
+//module.exports = router;
+export default router;

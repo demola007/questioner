@@ -15,7 +15,5 @@ class BaseErrorClass extends Error {
     return this.errMessage;
   }
 }
-
-
-module.exports = BaseErrorClass;
-//export default BaseErrorClass;
+//module.exports = BaseErrorClass;
+export default BaseErrorClass;

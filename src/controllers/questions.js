@@ -1,8 +1,8 @@
 
-const BaseErrClass = require('../helpers/BaseErrorClass');
-//import BaseErrClass from '../helpers/BaseErrorClass';
-const ErrorStrings = require('../helpers/repsonseStringHelper');
-//import ErrorStrings from '../helpers/repsonseStringHelpe';
+//const BaseErrClass = require('../helpers/BaseErrorClass');
+import BaseErrClass from '../helpers/BaseErrorClass';
+//const ErrorStrings = require('../helpers/repsonseStringHelper');
+import ErrorStrings from '../helpers/repsonseStringHelpe';
 
 
 class QuestionNotFoundError extends BaseErrClass {
@@ -57,5 +57,5 @@ class Questions {
   }
 }
 
-module.exports = Questions;
-//export default Questions;
+//module.exports = Questions;
+export default Questions;

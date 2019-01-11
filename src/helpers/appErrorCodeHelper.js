@@ -8,5 +8,5 @@ const appErrorCodes = {
 };
 
 
-module.exports = appErrorCodes;
-//export default appErrorCodes;
+//module.exports = appErrorCodes;
+export default appErrorCodes;

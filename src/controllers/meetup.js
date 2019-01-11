@@ -1,8 +1,8 @@
 
-const BaseErrClass = require('../helpers/BaseErrorClass');
-//import BaseErrClass from '../helpers/BaseErrorClass'
-const ErrorStrings = require('../helpers/repsonseStringHelper');
-//import ErrorStrings from '../helpers/repsonseStringHelper'
+//const BaseErrClass = require('../helpers/BaseErrorClass');
+import BaseErrClass from '../helpers/BaseErrorClass'
+//const ErrorStrings = require('../helpers/repsonseStringHelper');
+import ErrorStrings from '../helpers/repsonseStringHelper'
 
 const radix = 10;
 
@@ -83,5 +83,5 @@ class Meetup {
   }
 }
 
-module.exports = Meetup;
-//export default Meetup'
+//module.exports = Meetup;
+export default Meetup
